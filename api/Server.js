@@ -1,12 +1,13 @@
 import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
+// import path from "path";
+// import { fileURLToPath } from "url";
 import properties from "./Routes/Properties.js";
 import logger from "./middleware/Logger.js";
 import errorHandler from "./middleware/error.js";
 import notFound from "./middleware/notFound.js";
 
-const port = process.env.PORT || 8000;
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
 const app = express();
 
@@ -30,4 +31,4 @@ app.use("/api/properties", properties);
 app.use(notFound);
 app.use(errorHandler);
 
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+export default app;
