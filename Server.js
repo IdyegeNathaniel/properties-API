@@ -1,10 +1,10 @@
 import express from "express";
 // import path from "path";
 // import { fileURLToPath } from "url";
-import properties from "./Routes/Properties.js";
-import logger from "./middleware/Logger.js";
-import errorHandler from "./middleware/error.js";
-import notFound from "./middleware/notFound.js";
+import properties from "./api/Routes/Properties.js";
+import logger from "./api/middleware/Logger.js";
+import errorHandler from "./api/middleware/error.js";
+import notFound from "./api/middleware/notFound.js";
 
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = dirname(__filename);
@@ -30,5 +30,6 @@ app.use("/api/properties", properties);
 //ERRORHANDLER
 app.use(notFound);
 app.use(errorHandler);
+
 
 export default app;
