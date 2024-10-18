@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node api",
+    "start": "node server",
     "dev": "node --watch --env-file=.env server" 
   },
   "keywords": [],

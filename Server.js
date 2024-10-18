@@ -11,6 +11,8 @@ import notFound from "./api/middleware/notFound.js";
 
 const app = express();
 
+const port = process.env.PORT || 8080 ; 
+
 
 //BODY PARSER MIDDLEWARE
 app.use(express.json());
@@ -31,5 +33,7 @@ app.use("/api/properties", properties);
 app.use(notFound);
 app.use(errorHandler);
 
+
+app.listen(port, () => console.log(`This server is running on port ${port}`));
 
 export default app;
