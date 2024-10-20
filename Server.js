@@ -34,6 +34,8 @@ app.use(notFound);
 app.use(errorHandler);
 
 
-app.listen(port, () => console.log(`This server is running on port ${port}`));
+if (process.env.NODE_ENV !== "production") {
+    app.listen(port, () => console.log(`This server is running on port ${port}`));
+}
 
 export default app;
