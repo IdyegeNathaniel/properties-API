@@ -1,13 +1,10 @@
 import express from "express";
 // import path from "path";
 // import { fileURLToPath } from "url";
-import properties from "./api/Routes/Properties.js";
-import logger from "./api/middleware/Logger.js";
-import errorHandler from "./api/middleware/error.js";
-import notFound from "./api/middleware/notFound.js";
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
+import properties from "./Routes/Properties.js";
+import logger from "./middleware/Logger.js";
+import errorHandler from "./middleware/error.js";
+import notFound from "./middleware/notFound.js";
 
 const app = express();
 
@@ -21,10 +18,6 @@ app.use(express.urlencoded({extended: false}));
 //LOGGER MIDDLEWARE
 app.use(logger);
 
-
-//SETUP STATIC FOLDER
-// app.use(express.static(path.join{__dirname, "public"}));
-
 //ROUTES    
 app.use("/api/properties", properties);
 
@@ -34,8 +27,8 @@ app.use(notFound);
 app.use(errorHandler);
 
 
-if (process.env.NODE_ENV !== "production") {
-    app.listen(port, () => console.log(`This server is running on port ${port}`));
-}
+
+app.listen(port, () => console.log(`This server is running on port ${port}`));
+
 
 export default app;
