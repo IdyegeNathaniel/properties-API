@@ -1,6 +1,5 @@
 import express from "express";
-// import path from "path";
-// import { fileURLToPath } from "url";
+import cors from "cors";
 import properties from "./Routes/Properties.js";
 import logger from "./middleware/Logger.js";
 import errorHandler from "./middleware/error.js";
@@ -10,6 +9,8 @@ const app = express();
 
 const port = process.env.PORT || 8080 ; 
 
+
+app.use(cors);
 
 //BODY PARSER MIDDLEWARE
 app.use(express.json());
