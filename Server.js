@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 8080 ; 
 
 
-app.use(cors);
+app.use(cors());
 
 //BODY PARSER MIDDLEWARE
 app.use(express.json());
@@ -22,12 +22,9 @@ app.use(logger);
 //ROUTES    
 app.use("/api/properties", properties);
 
-
 //ERRORHANDLER
 app.use(notFound);
 app.use(errorHandler);
-
-
 
 app.listen(port, () => console.log(`This server is running on port ${port}`));
 
