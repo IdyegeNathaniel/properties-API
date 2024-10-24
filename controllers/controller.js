@@ -116,7 +116,7 @@ export const getProperty = (req, res, next) => {
 export const createProperty = (req, res, next) => {
     const newProperty = {
         id: properties.length + 1,
-        title: req.body.title
+        ...req.body
     }
 
     if (!newProperty.title) {
@@ -131,6 +131,7 @@ export const createProperty = (req, res, next) => {
 
 };
 
+
 // @desc Put Property by id
 // @route PUT /api/properties/:id
 export const updateProperty =  (req, res, next) => {
@@ -143,7 +144,7 @@ export const updateProperty =  (req, res, next) => {
         error.status = 404;
         return next(error);
     }
-    property.title = req.body.title;
+    property.title = req.body;
     res.status(200).json(properties);
 
 };
